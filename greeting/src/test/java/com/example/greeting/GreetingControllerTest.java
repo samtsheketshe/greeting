@@ -34,7 +34,7 @@ public class GreetingControllerTest {
 
     String name = "Sinqobile";
 
-
+    //hhhh
     @Test
 
     public void testGreetEndpoint() throws Exception{
