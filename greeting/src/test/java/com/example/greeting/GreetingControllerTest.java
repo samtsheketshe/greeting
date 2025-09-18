@@ -1,4 +1,4 @@
-package GreetingControllerTest;
+package com.example.greeting;
 
 import com.example.greeting.controller.GreetingController;
 import com.example.greeting.service.GreetingService;
@@ -9,7 +9,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -21,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = GreetingController.class)
 @AutoConfigureMockMvc(addFilters = false)
-//@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class)
 @ContextConfiguration
 public class GreetingControllerTest {
     @Autowired
