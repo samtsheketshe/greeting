@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -40,9 +41,13 @@ public class GreetingControllerTest {
     public void testGreetEndpoint() throws Exception{
         //return("Hello, Sinqobile!");
 
-        //Act & Assert
-        mockMvc.perform(get("/api/greet"))
+        String name = "Sinqobile";
 
+        when(greetingService.getGreetingService(name)).thenReturn("Hello, "+ name + "!");
+
+        //Act & Assert
+        mockMvc.perform(get("/api/greet")
+                        .param("name", name))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello, Sinqobile!"));
     }
